@@ -1,4 +1,3 @@
-import { search, SafeSearchType } from "duck-duck-scrape";
 import { Book as BookResult } from "../models/Book";
 import axios from "axios";
 

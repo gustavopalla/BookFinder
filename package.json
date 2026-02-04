@@ -8,8 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "adb": "adb reverse tcp:3000 tcp:3000",
+    "dev": "adb reverse tcp:3000 tcp:3000 && ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js"
   },

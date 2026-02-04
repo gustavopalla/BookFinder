@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: find-book-pdf-server
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18.0.0
+      - key: SERPER_API_KEY
+        sync: false
