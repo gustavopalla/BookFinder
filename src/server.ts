@@ -5,6 +5,10 @@ import { SearchController } from './controllers/SearchController';
 
 const app = express()
 
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
 app.use(cors()); // Permite que o servidor aceite requisições de outros domínios
 app.use(express.json()); // Permite que o servidor aceite requisições JSON
 
