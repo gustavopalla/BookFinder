@@ -5,16 +5,12 @@ import { SearchController } from './controllers/SearchController';
 
 const app = express()
 
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-}
-
 app.use(cors()); // Permite que o servidor aceite requisições de outros domínios
 app.use(express.json()); // Permite que o servidor aceite requisições JSON
 
 const searchController = new SearchController();
 
-app.post('/search', (_req, res) => searchController.handle(_req, res));
+app.post('/search', (req, res) => searchController.handle(req, res));
 
 app.get('/health', (_req, res) => {
     res.json({ status: 'ok', message: 'Working' });
