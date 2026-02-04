@@ -1,0 +1,38 @@
+{
+	"compilerOptions": {
+		/* Alvos Modernos */
+		"target": "ES2022", // Node 18+ suporta ES2022, permitindo código mais limpo
+		"module": "NodeNext", // Recomendado para lidar com ESM e CommonJS no Node moderno
+		"moduleResolution": "NodeNext",
+		"lib": [
+			"ES2022"
+		], // Inclui bibliotecas de tipos modernas
+		/* Caminhos */
+		"rootDir": "src",
+		"outDir": "dist", // Mudamos de 'lib' para 'dist' (padrão de mercado para Node)
+		/* Rigor (Strict Mode) - Mantenha todos esses! */
+		"strict": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"strictPropertyInitialization": true,
+		/* Qualidade de Código */
+		"noUnusedLocals": true, // Erro se houver variáveis sem uso (limpeza)
+		"noUnusedParameters": true, // Erro se houver parâmetros de função sem uso
+		"noImplicitReturns": true, // Garante que toda função retorne algo
+		"noFallthroughCasesInSwitch": true, // Evita esquecer o 'break' no switch case
+		/* Interoperabilidade e Extras */
+		"esModuleInterop": true, // Permite importar pacotes CommonJS como se fossem ES Modules
+		"skipLibCheck": true, // Pula a checagem de tipos de bibliotecas externas (mais rápido)
+		"forceConsistentCasingInFileNames": true,
+		/* Para frameworks como NestJS ou Inversify (se for usar) */
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true
+	},
+	"include": [
+		"src/**/*"
+	], // Compila tudo dentro de src
+	"exclude": [
+		"node_modules",
+		"**/*.spec.ts"
+	] // Ignora node_modules e arquivos de teste
+}
