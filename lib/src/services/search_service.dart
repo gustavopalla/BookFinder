@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:find_book_pdf/src/data/models/book_model.dart';
 
 class SearchService {
-  final String _baseUrl = 'http://localhost:3000/search';
+  final String _baseUrl = 'https://bookfinder-phai.onrender.com/search';
   final Dio _dio = Dio(
     BaseOptions(
       connectTimeout: const Duration(

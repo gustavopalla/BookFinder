@@ -31,6 +31,8 @@
   "typings": "./lib/index.d.ts",
   "dependencies": {
     "axios": "^1.13.4",
-    "duck-duck-scrape": "^2.2.7"
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "cors": "^2.8.5"
   }
 }
