@@ -114,6 +114,12 @@ class TypingIndicator extends StatelessWidget {
 }
 
 Widget _buildDownloadButton(BookResource res) {
+  final bool isEpub =
+      res.url.toLowerCase().contains('.epub') ||
+      res.title.toLowerCase().contains('epub');
+
+  debugPrint('Link: ${res.url} | IsEpub: $isEpub');
+
   return TextButton.icon(
     onPressed: () async {
       final Uri url = Uri.parse(res.url);
@@ -123,11 +129,18 @@ Widget _buildDownloadButton(BookResource res) {
         print('Error launching URL: $e');
       }
     },
-    icon: const Icon(Icons.download_rounded, size: 18),
-    label: Text(res.title),
+    icon: Icon(
+      isEpub ? Icons.auto_stories_rounded : Icons.picture_as_pdf_rounded,
+      size: 18,
+      color: isEpub ? Colors.green[700] : Colors.red[700],
+    ),
+    label: Text(
+      '${res.title} ${isEpub ? "(ePub)" : "(PDF)"}',
+      style: const TextStyle(fontSize: 13),
+    ),
     style: TextButton.styleFrom(
       foregroundColor: AppColors.primary,
-      padding: EdgeInsets.zero,
+      padding: const EdgeInsets.symmetric(vertical: 4),
       alignment: Alignment.centerLeft,
     ),
   );
