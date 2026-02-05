@@ -4,6 +4,7 @@ import { Request, Response } from "express";
 export class SearchController {
     async handle(req: Request, res: Response): Promise<Response> {
         const { query } = req.body;
+        console.log(`🔎 Nova busca recebida: ${query}`);
 
         if (!query) {
             return res.status(400).json({ error: 'Query is required', details: 'Please provide a query' });
