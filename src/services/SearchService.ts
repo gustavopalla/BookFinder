@@ -3,7 +3,7 @@ import axios from "axios";
 
 export class SearchService {
     private readonly API_KEY = process.env.API_KEY;
-    private readonly API_URL = process.env.API_URL;
+    private readonly API_URL = 'https://google.serper.dev/search';
 
     async execute(query: string): Promise<BookResult[]> {
         try {
