@@ -10,7 +10,7 @@ export class SearchService {
             console.log(`Buscando PDFs: ${query}`);
 
             const data = JSON.stringify({
-                "q": `${query} (filetype:pdf)`,
+                "q": `${query} filetype:pdf`,
             });
 
             const config = {
