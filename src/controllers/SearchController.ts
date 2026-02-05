@@ -1,4 +1,4 @@
-import { SearchService } from "../services/SerachService";
+import { SearchService } from "../services/SearchService";
 import { Request, Response } from "express";
 
 export class SearchController {
@@ -18,7 +18,5 @@ export class SearchController {
             console.error('Error executing search:', error);
             return res.status(500).json({ error: 'Internal server error' });
         }
-
-        return res.status(200).json({ message: 'Search executed successfully' });
     }
 }
