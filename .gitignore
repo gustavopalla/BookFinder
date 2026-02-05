@@ -31,6 +31,14 @@ migrate_working_dir/
 .dart_tool/
 .flutter-plugins-dependencies
 .pub-cache/
+# Ignora todo o conteúdo da pasta build
+/build/*
+
+# Mas abre uma exceção para a pasta web
+!/build/web/
+
+# Garante que arquivos importantes dentro de build/web não sejam ignorados
+!/build/web/**
 .pub/
 /coverage/
 
