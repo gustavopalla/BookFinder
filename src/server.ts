@@ -13,7 +13,7 @@ const searchController = new SearchController();
 app.post('/search', (req, res) => {
 
     console.log("====================================");
-    console.log("🚀 REQUISIÇÃO RECEBIDA NO /SEARCH!");
+    console.log("REQUISIÇÃO RECEBIDA NO /SEARCH!");
     console.log("Corpo da requisição:", req.body);
     console.log("====================================");
 

@@ -1,3 +1,3 @@
 API_KEY='Encontre sua api key no site https://serper.dev/'
-API_URL='https://serper.dev/api/search'
+API_URL='https://google.serper.dev/search'
 PORT='Coloque sua porta aqui'
