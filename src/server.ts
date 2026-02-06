@@ -3,8 +3,10 @@ import express from 'express';
 import cors from 'cors';
 import { SearchController } from './controllers/SearchController';
 import { authMiddleware } from './middlewares/authMiddleware';
+import { searchLimiter } from './middlewares/rateLimiter';
 
 const app = express()
+app.set('trust proxy', 1);
 
 app.use(cors({
     origin: '*',
@@ -14,7 +16,7 @@ app.use(express.json()); // Permite que o servidor aceite requisições JSON
 
 const searchController = new SearchController();
 
-app.post('/search', authMiddleware, (req, res) => {
+app.post('/search', authMiddleware, searchLimiter, (req, res) => {
 
     console.log("====================================");
     console.log("REQUISIÇÃO RECEBIDA NO /SEARCH!");
