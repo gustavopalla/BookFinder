@@ -31,10 +31,11 @@ class SearchService {
         throw Exception('Erro ao buscar livros');
       }
     } on DioException catch (e) {
-      print('--- ERRO DE CONEXÃO ---');
-      print('Tipo: ${e.type}');
-      print('Mensagem: ${e.message}');
-      print('Dica: Verifique se o servidor Node está rodando em 0.0.0.0:3000');
+      if (e.response?.statusCode == 429) {
+        throw Exception(
+          'Você excedeu o limite de requisições. Tente novamente mais tarde.',
+        );
+      }
       return [];
     } catch (e) {
       print('--- ERRO GERAL ---');
