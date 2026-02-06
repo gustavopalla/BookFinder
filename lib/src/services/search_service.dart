@@ -3,7 +3,7 @@ import 'package:find_book_pdf/src/data/models/book_model.dart';
 
 class SearchService {
   final String _baseUrl = 'https://bookfinder-phai.onrender.com/search';
-  final String _apiKey = String.fromEnvironment('API_ACESS_KEY');
+  final String _apiKey = String.fromEnvironment('API_ACCESS_KEY');
   late final Dio _dio = Dio(
     BaseOptions(
       headers: {'x-api-key': _apiKey},
