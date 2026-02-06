@@ -2,15 +2,19 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import { SearchController } from './controllers/SearchController';
+import { authMiddleware } from './middlewares/authMiddleware';
 
 const app = express()
 
-app.use(cors()); // Permite que o servidor aceite requisições de outros domínios
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST']
+})); // Permite que o servidor aceite requisições de outros domínios
 app.use(express.json()); // Permite que o servidor aceite requisições JSON
 
 const searchController = new SearchController();
 
-app.post('/search', (req, res) => {
+app.post('/search', authMiddleware, (req, res) => {
 
     console.log("====================================");
     console.log("REQUISIÇÃO RECEBIDA NO /SEARCH!");
